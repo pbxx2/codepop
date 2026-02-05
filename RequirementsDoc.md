@@ -4,7 +4,7 @@
 
 ### Overview of CodePop
 
-CodePop is an AI-driven custom soda ordering and fulfillment platform designed to automate the process of creating, ordering, and picking up custom sodas. The system combines mobile and web-based user interfaces with backend automation and AI-assisted decision-making to minimize human involvement while maintaining efficiency, consistency, and a high-quality user experience. CodePop allows users to customize drinks manually, receive AI-generated drink suggestions, or select from preset menus, while handling ordering, scheduling, and inventory management through automated systems.
+CodePop is an AI-driven custom soda ordering and fulfillment platform designed to automate the process of creating, ordering, and picking up custom sodas and floats. The system combines mobile and web-based user interfaces with backend automation and AI-assisted decision-making to minimize human involvement while maintaining efficiency, consistency, and a high-quality user experience. CodePop allows users to customize drinks manually, receive AI-generated drink suggestions, or select from preset menus, while handling ordering, scheduling, and inventory management through automated systems.
 
 The platform supports multiple user roles with different permissions and responsibilities, including general users, account users, managers, and administrators. Customers can place orders using either geolocation-based timing or manually selected pickup times to ensure drinks are prepared as close to arrival as possible. From an operational perspective, CodePop is designed to reduce staffing requirements by automating inventory tracking, order timing, and system monitoring, enabling a small number of managers to oversee store operations remotely.
 
@@ -75,7 +75,7 @@ These requirements established the foundational user experience and automation g
 - **Mobile Application Functionality** – Core application is fully functional on mobile devices with responsive design. 
 - **User Authentication** – Secure login system allowing users to create accounts, sign in, and manage their profiles. 
 - **AI-Powered Drink Generation** – Intelligent system that recommends or creates custom drinks based on user input or preferences. 
-- **Inventory Tracking** – Database integration that monitors ingredient usage in real-time to maintain stock levels. 
+- **Inventory Tracking** – Database integration that monitors ingredient usage in real-time to maintain stock levels, including frozen storage for ice cream. 
 
 #### In Progress / Incomplete
 
@@ -114,7 +114,7 @@ These requirements established the foundational user experience and automation g
 - Cancel orders and receive refunds before drink preparation
 
 #### Managers
-- Monitor real-time inventory levels across syrups, sodas, and add-ins
+- Monitor real-time inventory levels across syrups, sodas, ice cream, and add-ins
 - Access revenue reports and payment data for their assigned store location
 - Receive automated alerts when inventory reaches low thresholds
 - View order processing metrics including preparation time and pickup statistics
@@ -248,7 +248,7 @@ Managers focus on operational execution at a single store location. They monitor
 
 **Permissions and Responsibilities:**
 - **Single-Location Access:** Access to operational data for their assigned store only
-- **Inventory Management:** Monitor stock levels for syrups, sodas, add-ins, and physical items; receive automated low-stock alerts
+- **Inventory Management:** Monitor stock levels for syrups, sodas, ice cream, add-ins, and physical items; receive automated low-stock alerts
 - **Order Monitoring:** View real-time order status including in-progress, scheduled, and completed orders
 - **Payment Access:** Review user payment transactions and process refunds when necessary
 - **Revenue Reporting:** Access financial reports showing daily, weekly, and monthly revenue
@@ -270,7 +270,7 @@ Logistics Managers oversee supply chain operations for multiple stores within a 
 
 **Permissions and Responsibilities:**
 - **Regional Store Access:** View inventory and supply data for all stores in their assigned region
-- **Supply Management:** Monitor supplies including syrups, sodas, add-ins, cups, lids, and other physical items
+- **Supply Management:** Monitor supplies including syrups, sodas, ice cream, add-ins, cups, lids, and other physical items
 - **Route Optimization:** Plan delivery routes to minimize fuel consumption and travel time
 - **AI-Powered Analytics:** Import CSV files containing supply usage data; use AI to identify patterns and trends
 - **Schedule Creation:** Develop and update supply delivery schedules based on predictive usage patterns
@@ -353,7 +353,7 @@ General Users access the application without creating an account. They can place
 
 **Typical Use Cases:**
 - Visiting a CodePop location while traveling and wanting to try a custom drink without creating an account
-- Ordering a preset "Coke Float" as a first-time customer to test the service
+- Ordering a preset "Coke Float" (soda with ice cream) as a first-time customer to test the service
 - Selecting a pickup time of 30 minutes from now and completing payment
 - Deciding not to place the order and receiving an immediate refund after cancellation
 
@@ -591,8 +591,9 @@ General Users access the application without creating an account. They can place
 - Automatic system ordering when ingredients are low
 - AI integration for generating drinks
 - Login and signup functionality
-- Inventory database that updates as ingredients are used
+- Inventory database that updates as ingredients are used (syrups, sodas, ice cream, add-ins)
   - Inventory visibility from the manager dashboard
+  - Frozen storage tracking for ice cream inventory
 - Ability to cancel orders with reimbursement
 - Updated dashboards for existing roles reflecting new access limits
 - Ability for users to favorite drinks
@@ -739,7 +740,7 @@ General Users access the application without creating an account. They can place
 
 ### Manager – Updated User Stories
 
-- **(M)** As a manager, I want to view inventory levels for my store so that I can verify stock availability and identify items needing reorder.
+- **(M)** As a manager, I want to view inventory levels for my store (including ice cream freezer stock) so that I can verify stock availability and identify items needing reorder.
 - **(S)** As a manager, I want to receive notifications when inventory drops below defined thresholds so that I can reorder supplies before stockouts occur.
 - **(M)** As a manager, I want access to revenue and payment reports so that I can track daily sales and reconcile transactions.
 - **(S)** As a manager, I want to see machine downtime records so that I can understand how equipment issues affect order fulfillment.
@@ -756,7 +757,7 @@ General Users access the application without creating an account. They can place
 - **(M)** As an account_user, I want my payment information and geolocation data encrypted and stored securely so that my personal information is protected from unauthorized access.
 - **(S)** As an account_user, I want drinks recommended based on my order history and stated preferences so that I can discover new drinks I am likely to enjoy.
 - **(M)** As an account_user, I want the app interface to follow consistent design patterns and color schemes so that I can navigate the app without confusion.
-- **(M)** As an account_user, I want to see all available syrups, sodas, and add-ins with their descriptions so that I can make informed choices when crafting my drink.
+- **(M)** As an account_user, I want to see all available syrups, sodas, ice cream options, and add-ins with their descriptions so that I can make informed choices when crafting my drink or float.
 - **(M)** As an account_user, I want to save drinks to a favorites list so that I can reorder them with a single tap.
 - **(M)** As an account_user, I want my drink prepared close to my arrival time so that I receive it fresh rather than after sitting in a cooler.
 - **(M)** As an account_user, I want the option to specify a pickup time manually so that I can control when my drink is ready without sharing my location.
@@ -780,9 +781,9 @@ General Users access the application without creating an account. They can place
 - **(S)** As a general_user, I want to see nearby stores ranked by distance so that I can choose the most convenient pickup location.
 - **(W)** The system will not persist preferences or order history for general users; data is cleared when the session ends.
 - **(M)** As a general_user, I want to place orders without creating an account so that I can try the service without a registration barrier.
-- **(M)** As a general_user, I want to customize drinks using available syrups, sodas, and add-ins so that I can create a drink matching my preferences.
+- **(M)** As a general_user, I want to customize drinks using available syrups, sodas, ice cream, and add-ins so that I can create a drink or float matching my preferences.
 - **(S)** As a general_user, I want to see a list of popular drinks so that I can choose a well-reviewed option if unsure what to order.
-- **(M)** As a general_user, I want to view all available ingredients and combinations so that I understand my customization options.
+- **(M)** As a general_user, I want to view all available ingredients and combinations (including ice cream for floats) so that I understand my customization options.
 - **(S)** As a general_user, I want to receive a notification when my drink is ready so that I know when to pick it up.
 - **(M)** As a general_user, I want a full refund if I cancel my order before preparation begins so that I am not charged for drinks I did not receive.
 - **(S)** As a general_user, I want access to the seasonal menu so that I can try limited-time offerings.
